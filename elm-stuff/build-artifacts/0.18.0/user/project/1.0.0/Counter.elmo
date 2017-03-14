@@ -1,0 +1,73 @@
+var _user$project$Counter$countStyle = _elm_lang$html$Html_Attributes$style(
+	{
+		ctor: '::',
+		_0: {ctor: '_Tuple2', _0: 'font-size', _1: '20px'},
+		_1: {
+			ctor: '::',
+			_0: {ctor: '_Tuple2', _0: 'font-family', _1: 'monospace'},
+			_1: {
+				ctor: '::',
+				_0: {ctor: '_Tuple2', _0: 'display', _1: 'inline-block'},
+				_1: {
+					ctor: '::',
+					_0: {ctor: '_Tuple2', _0: 'width', _1: '50px'},
+					_1: {
+						ctor: '::',
+						_0: {ctor: '_Tuple2', _0: 'text-align', _1: 'center'},
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		}
+	});
+var _user$project$Counter$update = F2(
+	function (msg, model) {
+		var _p0 = msg;
+		return _elm_lang$core$Native_Utils.update(
+			model,
+			{count: model.count + 1});
+	});
+var _user$project$Counter$Model = function (a) {
+	return {count: a};
+};
+var _user$project$Counter$init = function (count) {
+	return _user$project$Counter$Model(count);
+};
+var _user$project$Counter$Increment = {ctor: 'Increment'};
+var _user$project$Counter$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$div,
+				{
+					ctor: '::',
+					_0: _user$project$Counter$countStyle,
+					_1: {ctor: '[]'}
+				},
+				{
+					ctor: '::',
+					_0: _elm_lang$html$Html$text(
+						_elm_lang$core$Basics$toString(model.count)),
+					_1: {ctor: '[]'}
+				}),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$button,
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html_Events$onClick(_user$project$Counter$Increment),
+						_1: {ctor: '[]'}
+					},
+					{
+						ctor: '::',
+						_0: _elm_lang$html$Html$text('+'),
+						_1: {ctor: '[]'}
+					}),
+				_1: {ctor: '[]'}
+			}
+		});
+};

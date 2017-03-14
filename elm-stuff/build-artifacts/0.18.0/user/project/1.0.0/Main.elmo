@@ -1,0 +1,96 @@
+var _user$project$Main$update = F2(
+	function (message, model) {
+		var _p0 = message;
+		switch (_p0.ctor) {
+			case 'UpdateTotal':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{totalCount: (model.beanCounterA.count + model.beanCounterB.count) + model.beanCounterC.count});
+			case 'BeanCounterA':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						beanCounterA: A2(_user$project$Counter$update, _p0._0, model.beanCounterA)
+					});
+			case 'BeanCounterB':
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						beanCounterB: A2(_user$project$Counter$update, _p0._0, model.beanCounterB)
+					});
+			default:
+				return _elm_lang$core$Native_Utils.update(
+					model,
+					{
+						beanCounterC: A2(_user$project$Counter$update, _p0._0, model.beanCounterC)
+					});
+		}
+	});
+var _user$project$Main$init = F4(
+	function (beancounterA, beancounterB, beancounterC, totalcount) {
+		return {
+			beanCounterA: _user$project$Counter$init(beancounterA),
+			beanCounterB: _user$project$Counter$init(beancounterB),
+			beanCounterC: _user$project$Counter$init(beancounterC),
+			totalCount: totalcount
+		};
+	});
+var _user$project$Main$Model = F4(
+	function (a, b, c, d) {
+		return {beanCounterA: a, beanCounterB: b, beanCounterC: c, totalCount: d};
+	});
+var _user$project$Main$BeanCounterC = function (a) {
+	return {ctor: 'BeanCounterC', _0: a};
+};
+var _user$project$Main$BeanCounterB = function (a) {
+	return {ctor: 'BeanCounterB', _0: a};
+};
+var _user$project$Main$BeanCounterA = function (a) {
+	return {ctor: 'BeanCounterA', _0: a};
+};
+var _user$project$Main$view = function (model) {
+	return A2(
+		_elm_lang$html$Html$div,
+		{ctor: '[]'},
+		{
+			ctor: '::',
+			_0: A2(
+				_elm_lang$html$Html$map,
+				_user$project$Main$BeanCounterA,
+				_user$project$Counter$view(model.beanCounterA)),
+			_1: {
+				ctor: '::',
+				_0: A2(
+					_elm_lang$html$Html$map,
+					_user$project$Main$BeanCounterB,
+					_user$project$Counter$view(model.beanCounterB)),
+				_1: {
+					ctor: '::',
+					_0: A2(
+						_elm_lang$html$Html$map,
+						_user$project$Main$BeanCounterC,
+						_user$project$Counter$view(model.beanCounterC)),
+					_1: {
+						ctor: '::',
+						_0: A2(
+							_elm_lang$html$Html$div,
+							{ctor: '[]'},
+							{
+								ctor: '::',
+								_0: _elm_lang$html$Html$text(
+									_elm_lang$core$Basics$toString(model.totalCount)),
+								_1: {ctor: '[]'}
+							}),
+						_1: {ctor: '[]'}
+					}
+				}
+			}
+		});
+};
+var _user$project$Main$main = _elm_lang$html$Html$beginnerProgram(
+	{
+		model: A4(_user$project$Main$init, 0, 0, 0, 0),
+		update: _user$project$Main$update,
+		view: _user$project$Main$view
+	})();
+var _user$project$Main$UpdateTotal = {ctor: 'UpdateTotal'};
